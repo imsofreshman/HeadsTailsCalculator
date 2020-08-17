@@ -4,19 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Proba
+namespace HeadsAndTailsApp
 {
     class Program
     {
         static void Main(string[] args)
         {
             Random random = new Random();
-            double fej = 0;
-            double iras = 0;
-            int feldobas = Convert.ToInt32(Console.ReadLine());
-            int[] array = new int[feldobas];
-            Console.WriteLine("Kerem tippeljen adja meg hány feldobás legyen");
-            for (int i = 0; i < feldobas; i++)
+            double head = 0;
+            double tail = 0;
+            int game = Convert.ToInt32(Console.ReadLine());
+            int[] array = new int[game];
+            Console.WriteLine("How many games you want to play?");
+            for (int i = 0; i < game; i++)
             {
                 array[i] = random.Next(0, 2);
             }
@@ -25,20 +25,20 @@ namespace Proba
                 if (item == 0)
                 {
                     Console.BackgroundColor = ConsoleColor.Red;
-                    Console.Write(" F ");
-                    fej++;
+                    Console.Write(" H ");
+                    head++;
                 }
                 else
                 {
                     Console.BackgroundColor = ConsoleColor.Blue;
-                    Console.Write(" Í ");
-                    iras++;
+                    Console.Write(" T ");
+                    tail++;
                 }
             }
             Console.BackgroundColor = ConsoleColor.Black;
-            Console.WriteLine("\n\nFej: {0} \t Iras {1}"
-                , Math.Round((fej / array.Length) * 100, 2)
-                , Math.Round((iras / array.Length) * 100, 2));
+            Console.WriteLine("\n\nHeads: {0} \t Tails {1}"
+                , Math.Round((head / array.Length) * 100, 2)
+                , Math.Round((tail / array.Length) * 100, 2));
             Console.ReadKey();
         }
     }
