@@ -13,9 +13,13 @@ namespace HeadsAndTailsApp
             Random random = new Random();
             double head = 0;
             double tail = 0;
-            int game = Convert.ToInt32(Console.ReadLine());
-            int[] array = new int[game];
             Console.WriteLine("How many games you want to play?");
+            int game;
+            while (!int.TryParse(Console.ReadLine(), out game))
+            {
+                Console.WriteLine("Try Again!");
+            }
+            int[] array = new int[game];
             for (int i = 0; i < game; i++)
             {
                 array[i] = random.Next(0, 2);
@@ -36,10 +40,12 @@ namespace HeadsAndTailsApp
                 }
             }
             Console.BackgroundColor = ConsoleColor.Black;
-            Console.WriteLine("\n\nHeads: {0} \t Tails {1}"
+            Console.WriteLine("\n\nHeads: {0} \nTails: {1}"
                 , Math.Round((head / array.Length) * 100, 2)
                 , Math.Round((tail / array.Length) * 100, 2));
+            Console.WriteLine("\n\nPress a key to exit");
             Console.ReadKey();
+
         }
     }
 }
